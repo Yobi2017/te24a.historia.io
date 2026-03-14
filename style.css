@@ -10,6 +10,7 @@
   --gold:    #c9a227;
   --red:     #8b2020;
   --green:   #2d6a4f;
+  --blue:    #1a4a7a;
   --radius:  10px;
   --font-display: 'Cinzel', serif;
   --font-body:    'Crimson Pro', serif;
@@ -195,12 +196,39 @@ nav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 #progress-fill { height: 100%; background: var(--gold); border-radius: 999px; transition: width 0.4s ease; width: 0%; }
 
 .fraga-kort { padding: 2rem; }
-.kategori-badge { display: inline-block; font-family: var(--font-display); font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; background: rgba(201,162,39,0.12); color: var(--gold); border: 1px solid rgba(201,162,39,0.3); border-radius: 3px; padding: 0.2rem 0.8rem; margin-bottom: 1rem; }
-#fraga-text { font-family: var(--font-display); font-size: 1.1rem; letter-spacing: 0.5px; margin-bottom: 0.6rem; line-height: 1.4; color: var(--text); }
-.hint { font-style: italic; font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem; }
-.hint:empty { display: none; }
+.kategori-badge { display: inline-block; font-family: var(--font-display); font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; background: rgba(201,162,39,0.12); color: var(--gold); border: 1px solid rgba(201,162,39,0.3); border-radius: 3px; padding: 0.2rem 0.8rem; margin-bottom: 0.5rem; margin-right: 0.5rem; }
 
-#svar-area { display: flex; gap: 0.7rem; margin-top: 1.2rem; flex-wrap: wrap; }
+.typ-badge { display: inline-block; font-family: var(--font-display); font-size: 0.62rem; letter-spacing: 1px; border-radius: 3px; padding: 0.2rem 0.8rem; margin-bottom: 0.5rem; }
+.typ-badge.fakta-badge { background: rgba(26,74,122,0.2); color: #6ab0e0; border: 1px solid rgba(26,74,122,0.4); }
+.typ-badge.resonemang { background: rgba(80,40,120,0.25); color: #c090f0; border: 1px solid rgba(120,60,180,0.4); }
+
+#fraga-text { font-family: var(--font-display); font-size: 1.05rem; letter-spacing: 0.5px; margin-bottom: 1rem; line-height: 1.5; color: var(--text); }
+
+/* ── LEDTRÅDAR ── */
+.ledtrad-sektion { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.2rem; }
+
+.ledtrad-knapp {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: transparent; border: 1px dashed var(--border); color: var(--muted);
+  padding: 0.45rem 1rem; border-radius: 4px;
+  font-family: var(--font-display); font-size: 0.68rem; letter-spacing: 1px;
+  cursor: pointer; transition: all 0.2s; align-self: flex-start;
+}
+.ledtrad-knapp:hover:not(:disabled) { border-color: var(--gold); color: var(--gold); }
+.ledtrad-knapp.visad { border-style: solid; border-color: rgba(201,162,39,0.3); color: rgba(201,162,39,0.5); cursor: default; }
+.ledtrad-knapp:disabled { opacity: 0.5; cursor: default; }
+.ledtrad-knapp.svår-knapp:hover:not(:disabled) { border-color: #c090f0; color: #c090f0; }
+.ledtrad-knapp.svår-knapp.visad { border-color: rgba(192,144,240,0.3); color: rgba(192,144,240,0.5); }
+
+.ledtrad-box {
+  background: rgba(201,162,39,0.07); border-left: 3px solid var(--gold);
+  border-radius: 0 6px 6px 0; padding: 0.7rem 1rem;
+  font-style: italic; font-size: 0.9rem; color: var(--text);
+  animation: slideIn 0.25s ease;
+}
+.ledtrad-box.svår-box { background: rgba(120,60,180,0.08); border-left-color: #c090f0; }
+
+#svar-area { display: flex; gap: 0.7rem; margin-top: 0.5rem; flex-wrap: wrap; }
 #svar-input { flex: 1; min-width: 200px; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--font-body); font-size: 1rem; padding: 0.7rem 1rem; outline: none; transition: border-color 0.2s; }
 #svar-input:focus { border-color: var(--gold); }
 #kolla-btn { background: var(--gold); color: #1a1208; border: none; border-radius: 4px; padding: 0.7rem 1.4rem; font-family: var(--font-display); font-weight: 700; font-size: 0.72rem; letter-spacing: 1px; cursor: pointer; transition: all 0.2s; }
